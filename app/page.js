@@ -2,8 +2,9 @@
 import Image from "next/image";
 import { firestore } from "@/firebase";
 import { useState, useEffect } from 'react'
-import { Box, Button, Modal, Stack, TextField, Typography } from "@mui/material";
+import { Box, Button, Modal, Stack, TextField, ThemeProvider, Typography } from "@mui/material";
 import { collection, deleteDoc, doc, getDoc, getDocs, query, setDoc } from "firebase/firestore";
+import theme from "./theme";
 
 export default function Home() {
 
@@ -64,6 +65,7 @@ export default function Home() {
   }, [])
 
   return (
+    <ThemeProvider theme={theme}>
     <Box
       width="100vw"
       height="100vh"
@@ -160,5 +162,6 @@ export default function Home() {
         </Stack>
       </Box>
     </Box>
+    </ThemeProvider>
   );
 }
